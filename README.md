@@ -1,0 +1,2 @@
+# wordwise-vocabulary
+Learning languages
