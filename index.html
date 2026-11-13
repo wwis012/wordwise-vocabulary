@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#14243a">
+<title>Wordwise — English Vocabulary</title>
+<style>
+:root{--navy:#14243a;--blue:#3867d6;--sky:#eaf0ff;--bg:#f5f7fb;--card:#fff;--ink:#202b3c;--muted:#718096;--line:#e6eaf0;--green:#16845b;--red:#c44c4c;--shadow:0 8px 28px rgba(28,45,75,.06)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 15px;background:var(--blue);color:#fff;font-weight:650}button.secondary{background:#eef2f8;color:var(--navy)}button.ghost{background:transparent;color:var(--muted);padding:7px}button.danger{background:#fff0f0;color:var(--red)}button:disabled{opacity:.45;cursor:not-allowed}
+.app{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.sidebar{background:var(--navy);color:#fff;padding:26px 17px;display:flex;flex-direction:column;gap:25px}.brand{font-size:21px;font-weight:800;letter-spacing:-.5px;padding:0 12px}.brand span{color:#8eafff}.tagline{color:#aebbd0;font-size:12px;padding:0 12px;margin-top:-20px}.nav{display:grid;gap:7px}.nav button{background:transparent;color:#c5d0df;text-align:left;font-weight:550;padding:12px;border-radius:10px}.nav button.active,.nav button:hover{background:#263b59;color:#fff}.nav button b{display:inline-block;width:27px;font-size:17px}.side-note{margin-top:auto;color:#aebbd0;font-size:12px;padding:12px;line-height:1.6}.main{padding:30px clamp(18px,4vw,54px);max-width:1400px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}.eyebrow{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}.top h1{margin:3px 0 0;font-size:28px;letter-spacing:-.8px}.date{color:var(--muted);font-size:13px}.view{display:none}.view.active{display:block}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.stat,.panel,.word-card,.study-card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.stat{padding:17px}.stat .label{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:27px;margin:5px 0 0;letter-spacing:-.7px}.stat small{color:var(--muted)}.panel{padding:21px;margin-top:18px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.panel h2,.panel h3{margin:0}.panel h2{font-size:18px}.panel h3{font-size:15px}.muted{color:var(--muted)}.small{font-size:12px}.progress{height:9px;background:#edf0f5;border-radius:20px;overflow:hidden;margin:12px 0}.progress span{height:100%;display:block;background:linear-gradient(90deg,#3867d6,#6f94ef);border-radius:20px}.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.between{justify-content:space-between}.pill{display:inline-flex;align-items:center;padding:4px 9px;border-radius:30px;background:var(--sky);color:#3158b5;font-size:11px;font-weight:700}.pill.green{background:#e7f6ef;color:var(--green)}.pill.orange{background:#fff3df;color:#a36a10}.actions{display:flex;gap:8px;flex-wrap:wrap}.study-card{max-width:760px;margin:20px auto;padding:clamp(22px,5vw,42px);text-align:center}.study-word{font-size:clamp(30px,6vw,44px);font-weight:800;letter-spacing:-1px;margin:8px 0}.ipa{color:var(--blue);font-size:17px}.meaning{font-size:22px;font-weight:700;margin:15px 0 8px}.example{background:#f7f9fc;border-radius:12px;padding:14px;text-align:left;margin:17px 0}.example em{color:var(--muted);font-style:normal;display:block;margin-top:5px}.field{display:grid;gap:6px;margin:12px 0}.field label{font-size:13px;font-weight:700}.field input,.field textarea,.field select,.search{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;background:#fff;color:var(--ink);outline:none}.field input:focus,.field textarea:focus,.search:focus{border-color:#8aa7ef;box-shadow:0 0 0 3px #eaf0ff}.field textarea{min-height:75px;resize:vertical}.word-list{display:grid;gap:10px}.word-item{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;display:flex;justify-content:space-between;gap:15px;align-items:center}.word-item h3{margin:0;font-size:16px}.word-item p{margin:3px 0 0;color:var(--muted);font-size:13px}.word-item .right{text-align:right;white-space:nowrap}.quiz-option{display:block;width:100%;text-align:left;background:#fff;color:var(--ink);border:1px solid var(--line);margin:9px 0;font-weight:550}.quiz-option:hover{border-color:#8aa7ef;background:#f8faff}.quiz-option.correct{border-color:#68b995;background:#eaf8f1}.quiz-option.wrong{border-color:#e29a9a;background:#fff0f0}.empty{text-align:center;padding:35px 15px;color:var(--muted)}.hidden{display:none!important}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#17283f;color:#fff;padding:11px 17px;border-radius:12px;box-shadow:var(--shadow);z-index:10}.mobile-menu{display:none}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.app{grid-template-columns:205px 1fr}.main{padding:24px 20px}}
+@media(max-width:650px){.app{display:block}.sidebar{padding:12px 14px;position:sticky;top:0;z-index:5;display:block}.brand{padding:0}.tagline,.side-note{display:none}.nav{display:flex;overflow-x:auto;margin-top:10px;gap:5px}.nav button{white-space:nowrap;padding:8px 10px;font-size:12px}.nav button b{width:auto;margin-right:5px}.main{padding:22px 14px}.top h1{font-size:23px}.date{display:none}.grid{gap:9px}.stat{padding:13px}.stat strong{font-size:23px}.panel{padding:16px}.word-item{align-items:flex-start}.word-item .right{white-space:normal}.study-card{padding:22px 16px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand">word<span>wise</span> ✦</div><div class="tagline">YOUR PERSONAL ENGLISH SPACE</div>
+  <nav class="nav">
+    <button class="active" data-view="home"><b>⌂</b> Tổng quan</button>
+    <button data-view="learn"><b>▣</b> Học từ mới</button>
+    <button data-view="review"><b>↻</b> Ôn tập</button>
+    <button data-view="quiz"><b>✎</b> Kiểm tra</button>
+    <button data-view="vocab"><b>▤</b> Sổ từ vựng</button>
+    <button data-view="progress"><b>◷</b> Tiến độ</button>
+    <button data-view="settings"><b>⚙</b> Dữ liệu</button>
+  </nav>
+  <div class="side-note">Học đều mỗi ngày một chút.<br>Small steps, lasting progress.</div>
+</aside>
+<main class="main">
+<header class="top"><div><div class="eyebrow">PERSONAL VOCABULARY TRAINER</div><h1 id="pageTitle">Chào mừng bạn 👋</h1></div><div class="date" id="today"></div></header>
+
+<section class="view active" id="home">
+  <div class="grid">
+    <div class="stat"><div class="label">Tổng số từ</div><strong id="statTotal">0</strong><small>Trong sổ từ vựng</small></div>
+    <div class="stat"><div class="label">Đã học hôm nay</div><strong id="statToday">0/10</strong><small>Từ mới trong ngày</small></div>
+    <div class="stat"><div class="label">Đến hạn ôn tập</div><strong id="statDue">0</strong><small>Từ cần ôn hôm nay</small></div>
+    <div class="stat"><div class="label">Độ chính xác</div><strong id="statAccuracy">—</strong><small>Dựa trên bài kiểm tra</small></div>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><div><h2>Mục tiêu hôm nay</h2><div class="muted small">10 từ mới mỗi ngày</div></div><span class="pill" id="dailyLabel">0 / 10 từ</span></div>
+    <div class="progress"><span id="dailyBar" style="width:0%"></span></div>
+    <div class="row between"><span class="muted small" id="dailyMessage">Bắt đầu bài học hôm nay nhé.</span><button onclick="showView('learn')">Bắt đầu học →</button></div>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h2>Lịch học hôm nay</h2><span class="pill green">Gợi ý</span></div>
+    <div class="row between"><div><b>1. Ôn từ cũ</b><div class="muted small">Củng cố những từ đã học trước đó</div></div><button class="secondary" onclick="showView('review')">Ôn tập</button></div>
+    <hr style="border:0;border-top:1px solid var(--line);margin:15px 0">
+    <div class="row between"><div><b>2. Học 10 từ mới</b><div class="muted small">Kết hợp TOEIC, giao tiếp và công việc</div></div><button class="secondary" onclick="showView('learn')">Học từ mới</button></div>
+    <hr style="border:0;border-top:1px solid var(--line);margin:15px 0">
+    <div class="row between"><div><b>3. Kiểm tra nhanh</b><div class="muted small">Kiểm tra mức độ ghi nhớ sau buổi học</div></div><button class="secondary" onclick="startQuiz()">Làm bài kiểm tra</button></div>
+  </div>
+  <div class="panel"><div class="panel-head"><h2>Tiến độ học tập</h2><button class="ghost" onclick="showView('progress')">Xem chi tiết →</button></div><div id="homeChart" class="muted small">Hoàn thành bài học đầu tiên để bắt đầu theo dõi tiến độ.</div></div>
+</section>
+
+<section class="view" id="learn">
+  <div class="row between"><div><h2>Học từ mới</h2><div class="muted small">Mỗi ngày tối đa 10 từ mới theo lộ trình gợi ý.</div></div><span class="pill" id="learnCount">0 / 10</span></div>
+  <div class="study-card" id="learnCard"></div>
+</section>
+
+<section class="view" id="review">
+  <div><h2>Ôn tập thông minh</h2><div class="muted small">Ôn theo lịch lặp lại ngắt quãng. Chọn mức độ nhớ sau mỗi từ.</div></div>
+  <div class="study-card" id="reviewCard"></div>
+</section>
+
+<section class="view" id="quiz">
+  <div class="panel" id="quizIntro"><h2>Kiểm tra từ vựng</h2><p class="muted">Bài kiểm tra gồm tối đa 10 câu, lấy từ các từ bạn đã học. Câu hỏi có thể là chọn nghĩa tiếng Việt hoặc chọn từ tiếng Anh phù hợp.</p><button onclick="startQuiz()">Bắt đầu kiểm tra →</button></div>
+  <div class="study-card hidden" id="quizBox"></div>
+</section>
+
+<section class="view" id="vocab">
+  <div class="panel">
+    <div class="panel-head"><div><h2>Sổ từ vựng</h2><div class="muted small" id="vocabCount">0 từ</div></div><button onclick="openAdd()">＋ Thêm từ</button></div>
+    <input class="search" id="searchWord" placeholder="Tìm từ tiếng Anh, nghĩa hoặc chủ đề..." oninput="renderVocab()">
+    <div class="row" style="margin:12px 0"><select id="filterCategory" class="search" style="max-width:220px" onchange="renderVocab()"><option value="">Tất cả chủ đề</option><option>TOEIC</option><option>Work</option><option>Daily</option><option>Custom</option></select><select id="filterStatus" class="search" style="max-width:220px" onchange="renderVocab()"><option value="">Tất cả trạng thái</option><option value="learned">Đã học</option><option value="new">Chưa học</option></select></div>
+    <div class="word-list" id="wordList"></div>
+  </div>
+</section>
+
+<section class="view" id="progress">
+  <div class="grid">
+    <div class="stat"><div class="label">Tổng lượt ôn</div><strong id="pReviews">0</strong></div>
+    <div class="stat"><div class="label">Từ đã thuộc</div><strong id="pMastered">0</strong></div>
+    <div class="stat"><div class="label">Ngày đã học</div><strong id="pDays">0</strong></div>
+    <div class="stat"><div class="label">Điểm kiểm tra TB</div><strong id="pScore">—</strong></div>
+  </div>
+  <div class="panel"><h2>Hoạt động 7 ngày gần nhất</h2><div id="weekly" style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:20px"></div></div>
+  <div class="panel"><h2>Phân bổ từ vựng</h2><div id="categories"></div></div>
+</section>
+
+<section class="view" id="settings">
+  <div class="panel"><h2>Sao lưu và khôi phục</h2><p class="muted">Dữ liệu được lưu trên trình duyệt của thiết bị này. Hãy tải bản sao lưu định kỳ để tránh mất dữ liệu khi xóa lịch sử trình duyệt hoặc đổi thiết bị.</p><div class="actions"><button onclick="exportData()">↓ Xuất dữ liệu JSON</button><label class="secondary" style="padding:10px 15px;border-radius:10px;cursor:pointer;font-weight:650">↑ Nhập dữ liệu JSON<input type="file" id="importFile" accept=".json,application/json" hidden onchange="importData(event)"></label></div></div>
+  <div class="panel"><h2>Thông tin ứng dụng</h2><p class="muted">Wordwise phiên bản 1.0 · Hoạt động trực tiếp trên trình duyệt · Không cần tài khoản hoặc server riêng.</p><p class="small muted">Phát âm sử dụng giọng đọc có sẵn trên thiết bị/trình duyệt (Speech Synthesis). Một số giọng đọc cần kết nối Internet.</p><button class="danger" onclick="resetProgress()">Đặt lại tiến độ học</button></div>
+</section>
+</main></div>
+<div id="toast" class="toast hidden"></div>
+
+<div id="addModal" class="hidden" style="position:fixed;inset:0;background:#0d1c2e88;z-index:20;display:none;align-items:center;justify-content:center;padding:16px">
+ <div class="panel" style="width:min(560px,100%);max-height:90vh;overflow:auto">
+  <div class="panel-head"><h2>Thêm từ vựng</h2><button class="ghost" onclick="closeAdd()">✕</button></div>
+  <form id="addForm">
+   <div class="field"><label>Từ tiếng Anh *</label><input id="fWord" required placeholder="e.g. negotiate"></div>
+   <div class="field"><label>Phiên âm IPA</label><input id="fIpa" placeholder="/nɪˈɡəʊʃieɪt/"></div>
+   <div class="field"><label>Nghĩa tiếng Việt *</label><input id="fMeaning" required placeholder="đàm phán"></div>
+   <div class="field"><label>Loại từ</label><input id="fType" placeholder="verb / noun / adjective"></div>
+   <div class="field"><label>Ví dụ tiếng Anh</label><textarea id="fExample" placeholder="We need to negotiate a better contract."></textarea></div>
+   <div class="field"><label>Dịch nghĩa ví dụ</label><textarea id="fTranslation" placeholder="Chúng ta cần đàm phán một hợp đồng tốt hơn."></textarea></div>
+   <div class="field"><label>Chủ đề</label><select id="fCategory"><option>TOEIC</option><option>Work</option><option>Daily</option><option>Custom</option></select></div>
+   <div class="field"><label>Ghi chú cá nhân</label><textarea id="fNote" placeholder="Mẹo ghi nhớ, collocation, từ đồng nghĩa..."></textarea></div>
+   <div class="actions"><button type="submit">Lưu từ vựng</button><button type="button" class="secondary" onclick="closeAdd()">Hủy</button></div>
+  </form>
+ </div>
+</div>
+
+<script>
+const SEED = [
+["accommodate","/əˈkɑːmədeɪt/","đáp ứng; cung cấp chỗ ở","verb","The hotel can accommodate up to 200 guests.","Khách sạn có thể phục vụ tối đa 200 khách.","TOEIC"],
+["allocate","/ˈæləkeɪt/","phân bổ; cấp phát","verb","The manager allocated more funds to marketing.","Quản lý đã phân bổ thêm ngân sách cho tiếp thị.","TOEIC"],
+["assess","/əˈses/","đánh giá; thẩm định","verb","We need to assess the potential risks.","Chúng ta cần đánh giá những rủi ro tiềm ẩn.","TOEIC"],
+["deadline","/ˈdedlaɪn/","hạn chót","noun","Please submit the report before the deadline.","Vui lòng nộp báo cáo trước hạn chót.","Work"],
+["efficient","/ɪˈfɪʃənt/","hiệu quả; năng suất","adjective","This system makes the process more efficient.","Hệ thống này giúp quy trình hiệu quả hơn.","Work"],
+["inquire","/ɪnˈkwaɪər/","hỏi thăm; yêu cầu thông tin","verb","I am writing to inquire about your services.","Tôi viết thư này để hỏi về các dịch vụ của quý công ty.","TOEIC"],
+["inventory","/ˈɪnvəntɔːri/","hàng tồn kho; kiểm kê","noun","The store checks its inventory every month.","Cửa hàng kiểm tra hàng tồn kho mỗi tháng.","TOEIC"],
+["negotiate","/nɪˈɡoʊʃieɪt/","đàm phán; thương lượng","verb","They negotiated a better payment term.","Họ đã thương lượng được điều khoản thanh toán tốt hơn.","Work"],
+["postpone","/poʊˈspoʊn/","trì hoãn; hoãn lại","verb","The meeting has been postponed until Friday.","Cuộc họp đã được hoãn đến thứ Sáu.","TOEIC"],
+["reliable","/rɪˈlaɪəbl/","đáng tin cậy","adjective","We need a reliable supplier.","Chúng tôi cần một nhà cung cấp đáng tin cậy.","Work"],
+["appointment","/əˈpɔɪntmənt/","cuộc hẹn","noun","I have a doctor's appointment this afternoon.","Chiều nay tôi có một cuộc hẹn với bác sĩ.","Daily"],
+["available","/əˈveɪləbl/","có sẵn; rảnh","adjective","Are you available for a quick call?","Bạn có rảnh để trao đổi nhanh qua điện thoại không?","Daily"],
+["clarify","/ˈklærəfaɪ/","làm rõ","verb","Could you clarify what you mean?","Bạn có thể làm rõ ý của mình không?","Work"],
+["confirm","/kənˈfɜːrm/","xác nhận","verb","Please confirm your attendance by Monday.","Vui lòng xác nhận tham dự trước thứ Hai.","TOEIC"],
+["expense","/ɪkˈspens/","chi phí; khoản chi","noun","Travel expenses will be reimbursed.","Chi phí đi lại sẽ được hoàn trả.","Work"],
+["facility","/fəˈsɪləti/","cơ sở vật chất; tiện nghi","noun","The company recently upgraded its facilities.","Công ty gần đây đã nâng cấp cơ sở vật chất.","TOEIC"],
+["issue","/ˈɪʃuː/","vấn đề; phát hành","noun/verb","Please let me know if you have any issues.","Vui lòng cho tôi biết nếu bạn gặp vấn đề gì.","Daily"],
+["maintain","/meɪnˈteɪn/","duy trì; bảo trì","verb","It is important to maintain accurate records.","Việc duy trì hồ sơ chính xác rất quan trọng.","Work"],
+["purchase","/ˈpɜːrtʃəs/","mua; việc mua hàng","verb/noun","The department plans to purchase new equipment.","Bộ phận dự định mua thiết bị mới.","TOEIC"],
+["regarding","/rɪˈɡɑːrdɪŋ/","liên quan đến; về việc","preposition","I am contacting you regarding the invoice.","Tôi liên hệ với bạn về hóa đơn.","Work"],
+["appreciate","/əˈpriːʃieɪt/","trân trọng; cảm kích","verb","I really appreciate your help.","Tôi thực sự cảm kích sự giúp đỡ của bạn.","Daily"],
+["budget","/ˈbʌdʒɪt/","ngân sách","noun","We have to stay within the monthly budget.","Chúng ta phải nằm trong ngân sách hàng tháng.","Work"],
+["convenient","/kənˈviːniənt/","thuận tiện","adjective","Would 3 p.m. be convenient for you?","3 giờ chiều có thuận tiện cho bạn không?","Daily"],
+["delay","/dɪˈleɪ/","sự chậm trễ; trì hoãn","noun/verb","We apologize for the delay in processing your order.","Chúng tôi xin lỗi vì sự chậm trễ trong xử lý đơn hàng.","TOEIC"],
+["estimate","/ˈestɪmeɪt/","ước tính; bản dự toán","verb/noun","Could you provide an estimate of the total cost?","Bạn có thể cung cấp ước tính tổng chi phí không?","Work"],
+["feedback","/ˈfiːdbæk/","phản hồi; nhận xét","noun","Thank you for your valuable feedback.","Cảm ơn bạn vì những phản hồi hữu ích.","Daily"],
+["notify","/ˈnoʊtɪfaɪ/","thông báo","verb","Please notify us of any changes.","Vui lòng thông báo cho chúng tôi nếu có thay đổi.","TOEIC"],
+["policy","/ˈpɑːləsi/","chính sách","noun","Please review the company's refund policy.","Vui lòng xem lại chính sách hoàn tiền của công ty.","Work"],
+["schedule","/ˈskedʒuːl/","lịch trình; lên lịch","noun/verb","I will schedule a meeting for next week.","Tôi sẽ lên lịch một cuộc họp vào tuần tới.","Daily"],
+["transaction","/trænˈzækʃən/","giao dịch","noun","All transactions must be recorded accurately.","Tất cả giao dịch phải được ghi nhận chính xác.","Work"]
+];
+const KEY="wordwise_v1_data";
+const todayKey=()=>new Date().toLocaleDateString("en-CA");
+let data=loadData(), learnIndex=0, reviewIndex=0, quizState=null;
+function loadData(){try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&Array.isArray(d.words))return d}catch(e){}return {words:SEED.map((x,i)=>({id:"s"+i,word:x[0],ipa:x[1],meaning:x[2],type:x[3],example:x[4],translation:x[5],category:x[6],note:"",learned:false,createdAt:"seed",due:null,interval:0,ease:2.5,reps:0,correct:0,wrong:0})),daily:{},activity:{},scores:[],reviews:0};}
+function save(){localStorage.setItem(KEY,JSON.stringify(data));refreshStats()}
+function esc(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.remove("hidden");setTimeout(()=>t.classList.add("hidden"),2300)}
+const learned=()=>data.words.filter(w=>w.learned);
+const dueWords=()=>learned().filter(w=>w.due&&w.due<=todayKey());
+function showView(id){document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id===id));document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===id));const titles={home:"Chào mừng bạn 👋",learn:"Học từ mới",review:"Ôn tập từ vựng",quiz:"Kiểm tra kiến thức",vocab:"Sổ từ vựng",progress:"Tiến độ học tập",settings:"Quản lý dữ liệu"};document.getElementById("pageTitle").textContent=titles[id];if(id==="learn")renderLearn();if(id==="review")renderReview();if(id==="vocab")renderVocab();if(id==="progress")renderProgress();if(id==="quiz"&&!quizState)document.getElementById("quizIntro").classList.remove("hidden")}
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.view)));
+function todaysLearned(){return data.daily[todayKey()]||[]}
+function todayQueue(){const done=todaysLearned();return data.words.filter(w=>!w.learned).slice(0,10).filter(w=>!done.includes(w.id))}
+function refreshStats(){const done=todaysLearned(),due=dueWords(),scores=data.scores;document.getElementById("statTotal").textContent=data.words.length;document.getElementById("statToday").textContent=done.length+"/10";document.getElementById("statDue").textContent=due.length;document.getElementById("statAccuracy").textContent=scores.length?Math.round(scores.reduce((a,s)=>a+s.pct,0)/scores.length)+"%":"—";document.getElementById("dailyLabel").textContent=done.length+" / 10 từ";document.getElementById("dailyBar").style.width=Math.min(100,done.length*10)+"%";document.getElementById("dailyMessage").textContent=done.length>=10?"Bạn đã hoàn thành mục tiêu hôm nay. Rất tốt!":"Còn "+(10-done.length)+" từ nữa để hoàn thành mục tiêu.";document.getElementById("learnCount").textContent=done.length+" / 10";document.getElementById("today").textContent=new Date().toLocaleDateString("vi-VN",{weekday:"long",day:"numeric",month:"long",year:"numeric"});const bars=Object.entries(data.activity).sort().slice(-7);document.getElementById("homeChart").innerHTML=bars.length?bars.map(([d,n])=>`${esc(d)}: <b>${n}</b> từ`).join("　·　"):"Hoàn thành bài học đầu tiên để bắt đầu theo dõi tiến độ."}
+function speak(word){if(!("speechSynthesis" in window)){toast("Trình duyệt không hỗ trợ phát âm.");return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(word);u.lang="en-US";u.rate=.88;speechSynthesis.speak(u)}
+function wordCard(w,mode){const isLearn=mode==="learn";return `<div class="pill">${esc(w.category)}</div><div class="study-word">${esc(w.word)}</div><div class="row" style="justify-content:center"><span class="ipa">${esc(w.ipa||"IPA chưa được thêm")}</span><button class="secondary" onclick="speak('${esc(w.word).replace(/'/g,"\\'")}')">🔊 Nghe</button></div>${isLearn?`<button class="secondary" style="margin-top:15px" onclick="document.getElementById('learnMeaning').classList.toggle('hidden')">Hiện nghĩa</button><div id="learnMeaning" class="hidden"><div class="meaning">${esc(w.meaning)}</div><div class="muted small">${esc(w.type)}</div><div class="example"><b>Example</b><br>${esc(w.example)}<em>${esc(w.translation)}</em></div>${w.note?`<p class="muted small">Ghi chú: ${esc(w.note)}</p>`:""}</div>`:`<div class="meaning">${esc(w.meaning)}</div><div class="muted small">${esc(w.type)}</div><div class="example"><b>Example</b><br>${esc(w.example)}<em>${esc(w.translation)}</em></div>${w.note?`<p class="muted small">Ghi chú: ${esc(w.note)}</p>`:""}`}`}
+function renderLearn(){const box=document.getElementById("learnCard"),queue=todayQueue();if(!queue.length){box.innerHTML=`<div class="empty"><div style="font-size:36px">🎉</div><h2>Hoàn thành bài học hôm nay!</h2><p>Bạn đã học đủ 10 từ mới hoặc đã học hết danh sách từ hiện có.</p><button onclick="startQuiz()">Kiểm tra ngay</button></div>`;return}const w=queue[0];box.innerHTML=`${wordCard(w,"learn")}<div class="actions" style="justify-content:center;margin-top:22px"><button onclick="markLearned('${w.id}')">Đã học xong →</button><button class="secondary" onclick="showView('vocab')">Xem sổ từ</button></div><div class="muted small" style="margin-top:14px">Còn ${queue.length} từ trong bài học hôm nay</div>`}
+function markLearned(id){const w=data.words.find(x=>x.id===id);if(!w)return;w.learned=true;w.due=todayKey();w.interval=0;w.reps=0;data.daily[todayKey()]=[...todaysLearned(),id];data.activity[todayKey()]=(data.activity[todayKey()]||0)+1;save();renderLearn();toast("Đã thêm vào danh sách ôn tập!")}
+function renderReview(){const box=document.getElementById("reviewCard"),list=dueWords();if(!list.length){box.innerHTML=`<div class="empty"><div style="font-size:36px">🌿</div><h2>Không có từ đến hạn ôn</h2><p>Các từ đã học sẽ xuất hiện ở đây khi đến lịch ôn tiếp theo.</p><button onclick="showView('learn')">Học từ mới</button></div>`;return}const w=list[0];box.innerHTML=`${wordCard(w,"review")}<p class="muted small">Lần ôn thứ ${w.reps+1} · Khoảng cách hiện tại: ${w.interval||0} ngày</p><div style="margin-top:20px"><div class="muted small" style="margin-bottom:10px">Bạn nhớ từ này ở mức độ nào?</div><div class="actions" style="justify-content:center"><button class="danger" onclick="rateReview('${w.id}',0)">Quên mất</button><button class="secondary" onclick="rateReview('${w.id}',3)">Khó nhớ</button><button class="secondary" onclick="rateReview('${w.id}',4)">Nhớ được</button><button onclick="rateReview('${w.id}',5)">Dễ dàng</button></div></div><div class="muted small" style="margin-top:15px">Còn ${list.length} từ cần ôn</div>`}
+function addDays(date,n){const d=new Date(date+"T12:00:00");d.setDate(d.getDate()+n);return d.toLocaleDateString("en-CA")}
+function rateReview(id,q){const w=data.words.find(x=>x.id===id);if(!w)return;data.reviews++;if(q<3){w.reps=0;w.interval=1;w.wrong++;}else{w.correct++;w.reps++;if(w.reps===1)w.interval=1;else if(w.reps===2)w.interval=3;else w.interval=Math.max(1,Math.round(w.interval*w.ease));w.ease=Math.max(1.3,w.ease+(0.1-(5-q)*(0.08+(5-q)*0.02)));}w.due=addDays(todayKey(),w.interval);save();renderReview();toast("Đã cập nhật lịch ôn tập.")}
+function startQuiz(){const pool=learned();if(pool.length<2){toast("Hãy học ít nhất 2 từ trước khi kiểm tra.");showView("learn");return}const questions=[...pool].sort(()=>Math.random()-.5).slice(0,Math.min(10,pool.length)).map(w=>{const reverse=Math.random()>.5;const wrong=pool.filter(x=>x.id!==w.id).sort(()=>Math.random()-.5).slice(0,3);const opts=[w,...wrong].sort(()=>Math.random()-.5);return {id:w.id,prompt:reverse?`Từ "${w.word}" có nghĩa là gì?`:`Từ tiếng Anh nào có nghĩa "${w.meaning}"?`,answer:reverse?w.meaning:w.word,options:opts.map(x=>reverse?x.meaning:x.word),reverse}});quizState={questions,index:0,correct:0,answered:false};document.getElementById("quizIntro").classList.add("hidden");document.getElementById("quizBox").classList.remove("hidden");renderQuiz()}
+function renderQuiz(){const box=document.getElementById("quizBox"),q=quizState.questions[quizState.index];if(!q){const pct=Math.round(quizState.correct/quizState.questions.length*100);data.scores.push({date:todayKey(),pct,correct:quizState.correct,total:quizState.questions.length});save();box.innerHTML=`<div class="empty"><div style="font-size:36px">🏁</div><h2>Hoàn thành bài kiểm tra!</h2><div class="study-word">${pct}%</div><p>Bạn trả lời đúng ${quizState.correct}/${quizState.questions.length} câu.</p><button onclick="quizState=null;document.getElementById('quizBox').classList.add('hidden');document.getElementById('quizIntro').classList.remove('hidden')">Hoàn tất</button></div>`;return}box.innerHTML=`<div class="row between"><span class="pill">Câu ${quizState.index+1}/${quizState.questions.length}</span><span class="muted small">${quizState.correct} câu đúng</span></div><div class="progress"><span style="width:${quizState.index/quizState.questions.length*100}%"></span></div><h2 style="margin:25px 0">${esc(q.prompt)}</h2><div id="options">${q.options.map(o=>`<button class="quiz-option" onclick="answerQuiz(this,'${esc(o).replace(/'/g,"\\'")}')">${esc(o)}</button>`).join("")}</div><div id="quizFeedback" class="muted small" style="min-height:25px;margin:10px"></div><button id="nextQuestion" class="hidden" onclick="quizState.index++;quizState.answered=false;renderQuiz()">Câu tiếp theo →</button>`}
+function answerQuiz(btn,value){if(quizState.answered)return;quizState.answered=true;const q=quizState.questions[quizState.index],w=data.words.find(x=>x.id===q.id),ok=value===q.answer;if(ok){quizState.correct++;if(w)w.correct++}else if(w)w.wrong++;document.querySelectorAll(".quiz-option").forEach(b=>{b.disabled=true;if(b.textContent===q.answer)b.classList.add("correct")});if(!ok)btn.classList.add("wrong");document.getElementById("quizFeedback").textContent=ok?"Chính xác!":"Chưa đúng. Đáp án: "+q.answer;document.getElementById("nextQuestion").classList.remove("hidden");save()}
+function renderVocab(){const q=(document.getElementById("searchWord").value||"").toLowerCase(),cat=document.getElementById("filterCategory").value,status=document.getElementById("filterStatus").value;let arr=data.words.filter(w=>(!q||(w.word+" "+w.meaning+" "+w.category).toLowerCase().includes(q))&&(!cat||w.category===cat)&&(!status||(status==="learned"?w.learned:!w.learned)));document.getElementById("vocabCount").textContent=arr.length+" từ";document.getElementById("wordList").innerHTML=arr.length?arr.map(w=>`<div class="word-item"><div><h3>${esc(w.word)} <span class="muted small">${esc(w.ipa)}</span></h3><p>${esc(w.meaning)} · ${esc(w.category)} ${w.note?"· "+esc(w.note):""}</p></div><div class="right"><span class="pill ${w.learned?"green":"orange"}">${w.learned?"Đã học":"Chưa học"}</span><div style="margin-top:7px"><button class="ghost" onclick="speak('${esc(w.word).replace(/'/g,"\\'")}')">🔊</button><button class="ghost" onclick="editWord('${w.id}')">✎</button></div></div></div>`).join(""):'<div class="empty">Không tìm thấy từ vựng phù hợp.</div>'}
+function openAdd(){document.getElementById("addModal").style.display="flex";document.getElementById("addModal").classList.remove("hidden");document.getElementById("addForm").reset();document.getElementById("addForm").dataset.edit=""}
+function closeAdd(){document.getElementById("addModal").style.display="none";document.getElementById("addModal").classList.add("hidden")}
+document.getElementById("addForm").addEventListener("submit",e=>{e.preventDefault();const f=id=>document.getElementById(id).value.trim(),edit=document.getElementById("addForm").dataset.edit;const obj={word:f("fWord"),ipa:f("fIpa"),meaning:f("fMeaning"),type:f("fType"),example:f("fExample"),translation:f("fTranslation"),category:f("fCategory"),note:f("fNote")};if(edit){Object.assign(data.words.find(w=>w.id===edit),obj)}else{data.words.unshift({id:"u"+Date.now(),...obj,learned:false,createdAt:todayKey(),due:null,interval:0,ease:2.5,reps:0,correct:0,wrong:0})}save();closeAdd();renderVocab();toast(edit?"Đã cập nhật từ vựng.":"Đã thêm từ vựng.")});
+function editWord(id){const w=data.words.find(x=>x.id===id);if(!w)return;openAdd();document.getElementById("addForm").dataset.edit=id;const map={fWord:"word",fIpa:"ipa",fMeaning:"meaning",fType:"type",fExample:"example",fTranslation:"translation",fCategory:"category",fNote:"note"};Object.entries(map).forEach(([a,b])=>document.getElementById(a).value=w[b]||"")}
+function renderProgress(){document.getElementById("pReviews").textContent=data.reviews;document.getElementById("pMastered").textContent=learned().filter(w=>w.interval>=21).length;document.getElementById("pDays").textContent=Object.keys(data.activity).length;document.getElementById("pScore").textContent=data.scores.length?Math.round(data.scores.reduce((a,s)=>a+s.pct,0)/data.scores.length)+"%":"—";const days=[];for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const key=d.toLocaleDateString("en-CA");days.push({key,n:data.activity[key]||0,label:d.toLocaleDateString("vi-VN",{weekday:"short"})})}document.getElementById("weekly").innerHTML=days.map(x=>`<div style="text-align:center"><div style="height:100px;background:#eef2f8;border-radius:9px;display:flex;align-items:end;overflow:hidden"><div style="height:${Math.min(100,x.n*10)}%;background:#6387df;width:100%;border-radius:9px 9px 0 0"></div></div><b style="font-size:12px">${x.n}</b><div class="muted small">${x.label}</div></div>`).join("");const cats=["TOEIC","Work","Daily","Custom"];document.getElementById("categories").innerHTML=cats.map(c=>{const n=data.words.filter(w=>w.category===c).length;return `<div class="row between" style="margin:10px 0"><span>${c}</span><b>${n}</b></div><div class="progress"><span style="width:${data.words.length?n/data.words.length*100:0}%"></span></div>`}).join("")}
+function exportData(){const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="wordwise-backup-"+todayKey()+".json";a.click();URL.revokeObjectURL(url);toast("Đã tạo file sao lưu.")}
+function importData(e){const file=e.target.files[0];if(!file)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!Array.isArray(d.words))throw Error();if(!confirm("Nhập dữ liệu sẽ thay thế dữ liệu hiện tại. Bạn có chắc không?"))return;data=d;save();renderVocab();toast("Đã khôi phục dữ liệu.")}catch(err){toast("File không hợp lệ.")}};r.readAsText(file);e.target.value=""}
+function resetProgress(){if(!confirm("Đặt lại tiến độ học? Các từ tự thêm vẫn được giữ, nhưng trạng thái học và lịch ôn sẽ bị xóa."))return;data.words.forEach(w=>{w.learned=false;w.due=null;w.interval=0;w.reps=0;w.ease=2.5;w.correct=0;w.wrong=0});data.daily={};data.activity={};data.scores=[];data.reviews=0;save();toast("Đã đặt lại tiến độ.");showView("home")}
+document.getElementById("today").textContent=new Date().toLocaleDateString("vi-VN",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+refreshStats();renderLearn();renderReview();renderVocab();
+</script>
+</body></html>
